@@ -1,88 +1,76 @@
-body {
+/* Importation de la police Jost */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap');
+
+* {
+    box-sizing: border-box;
     margin: 0;
-    font-family: 'Jost', sans-serif;
-    background: #f5f5f5;
-    color: #333;
-}
-
-header {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 10px 20px;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-}
-
-nav ul {
-    list-style-type: none;
     padding: 0;
-    margin: 0;
-    text-align: right;
+    font-family: 'Jost', sans-serif; /* Utilisation de la police importée */
 }
 
-nav ul li {
-    display: inline-block;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-main {
-    margin-top: 60px; /* Pour ne pas être couvert par le header */
-}
-
-.hero {
+body {
+    background: linear-gradient(90deg, #C7C5F4, #776BCC); /* Dégradé de fond */
+    height: 100vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    min-height: 90vh;
-    padding: 0 50px;
-    position: relative;
-    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); /* Dégradé pastel */
 }
 
-.hero .content {
-    max-width: 50%;
+.main {
+    background-color: white; /* Couleur de fond du formulaire */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Ombre portée */
+    padding: 40px; /* Espacement interne */
+    max-width: 400px; /* Largeur maximale */
+    width: 100%; /* Largeur responsive */
 }
 
-.hero h1 {
-    font-size: 3em;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+h2 {
+    margin-bottom: 20px; /* Espace sous le titre */
+    text-align: center; /* Centre le titre */
+    color: #333; /* Couleur du texte du titre */
 }
 
-.hero p {
-    font-size: 1.5em;
-    margin: 20px 0;
-    color: #fff;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
-.hero .btn-cv {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #d5006d; /* Rose foncé correspondant au dégradé */
-    color: #fff; /* Texte blanc pour un bon contraste */
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    font-size: 1.2em;
+label {
+    display: block; /* Étiquette en bloc pour un espacement correct */
+    margin-bottom: 5px; /* Espace sous l'étiquette */
+    font-weight: 600; /* Épaisseur de la police */
+    color: #555; /* Couleur de l'étiquette */
 }
 
-.hero .btn-cv:hover {
-    background-color: #f8805f; /* Rose encore plus foncé au survol */
+input[type="text"],
+input[type="password"] {
+    width: 100%; /* Largeur complète du champ */
+    padding: 10px; /* Espacement interne */
+    border: 1px solid #ccc; /* Bordure gris clair */
+    border-radius: 5px; /* Coins arrondis */
+    margin-bottom: 20px; /* Espace sous le champ */
+    transition: border-color 0.3s; /* Animation de la couleur de bordure */
 }
 
-.hero .btn-cv svg {
-    margin-left: 10px;
-    vertical-align: middle;
-    fill: #fff; /* Icône en blanc pour s'accorder avec le texte */
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #776BCC; /* Couleur de la bordure au focus */
+    outline: none; /* Supprime le contour par défaut */
+}
+
+button {
+    background-color: #776BCC; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    padding: 10px; /* Espacement interne */
+    border: none; /* Supprime la bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur en main */
+    width: 100%; /* Largeur complète */
+    transition: background-color 0.3s; /* Animation de couleur de fond */
+}
+
+button:hover {
+    background-color: #5d54a4; /* Couleur au survol */
+}
+
+p {
+    color: red; /* Couleur du message d'erreur */
+    text-align: center; /* Centre le message d'erreur */
+    margin-top: 10px; /* Espace au-dessus du message d'erreur */
 }

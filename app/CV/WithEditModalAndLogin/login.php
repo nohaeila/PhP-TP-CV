@@ -15,41 +15,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($username === $adminUsername && $password === $adminPassword) {
         // Set session for admin user
         $_SESSION['is_admin'] = true;
-        // Redirect to the CV page
-        header("Location: index.php");
+        
+        // Set user information in session (ajoute des valeurs réelles ici)
+        $_SESSION['first_name'] = 'Admin'; // Remplace par le prénom réel
+        $_SESSION['last_name'] = 'User'; // Remplace par le nom réel
+        $_SESSION['email'] = 'admin@example.com'; // Remplace par l'email réel
+        
+        session_regenerate_id(); // Sécurise la session
+        // Redirect to the projects page
+        header("Location: ../../projects.php");
         exit;
-    } else {
-        $error = "Invalid username or password!";
+    } else { 
+        $error = "Nom d'utilisateur ou mot de passe invalide !";
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
     <div class="main">  
-        <div class="login">
-            <h2>Admin Login</h2>
-            <?php if (isset($error)): ?>
-                <p style="color:red;"><?php echo $error; ?></p>
-            <?php endif; ?>
-            <form method="POST" action="">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                
-                <button type="submit">Login</button>
-            </form>
-        </div>
+        <h2>Connexion</h2>
+        <?php if (isset($error)): ?>
+            <p><?php echo $error; ?></p>
+        <?php endif; ?>
+        <form method="POST" action="">
+            <label for="username">Nom d'utilisateur:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Mot de passe:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Se connecter</button>
+        </form>
     </div>
 </body>
 </html>

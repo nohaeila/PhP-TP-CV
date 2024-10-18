@@ -1,4 +1,16 @@
-<?php session_start(); ?>
+<?php include 'header.php';
+// Initialisation des variables
+$name = $email = $message = "";
+$messageSent = false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
+
+    $messageSent = true; 
+}
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -9,40 +21,29 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="login.php">Connexion</a></li>
-                <li><a href="projects.php">Projets</a></li>
-                <li><a href="contact.php">Contact</a></li>
-                <?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']): ?>
-                    <li><a href="logout.php">Déconnexion</a></li>
-                <?php endif; ?>
-            </ul>
-        </nav> 
-    </header>
-
     <main>
-        <h2>Contactez-moi</h2>
-        <form method="POST" action="send_email.php">
-            <label for="name">Nom :</label>
-            <input type="text" id="name" name="name" required>
+        <section class="contact">
+            <h1>Contactez-moi</h1>
+            <?php if ($messageSent): ?>
+            <?php endif; ?>
+            <form action="contact.php" method="post">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+                
 
-            <label for="email">E-mail :</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" required></textarea>
-
-            <button type="submit">Envoyer</button>
-        </form>
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Mon CV - Portfolio</p>
+        <p>&copy; 2024 Mon Portfolio.</p>
     </footer>
-
 </body>
 </html>
-
