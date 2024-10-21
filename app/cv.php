@@ -13,13 +13,14 @@ $db = new PDO('sqlite:my_database.sqlite');
 // Si un ID est fourni, on récupère le CV correspondant
 $cv = null;
 if (isset($_GET['id'])) {
-    $stmt = $db->prepare("SELECT * FROM cvs WHERE id = ?");
-    $stmt->execute([$_GET['id']]);
-    $cv = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt = $db->prepare("SELECT * FROM cvs WHERE id = ?");// Prépare la requête
+    $stmt->execute([$_GET['id']]);// Exécute la requête avec l'ID
+    $cv = $stmt->fetch(PDO::FETCH_ASSOC);// Récupère le CV sous forme de tableau associatif
 }
 
 // Sauvegarder les données du CV
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Récupération des données du formulaire
     $name = $_POST['name'];
     $first_name = $_POST['first_name'];
     $email = $_POST['email'];
@@ -28,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $experience = $_POST['experience'];
     $education = $_POST['education'];  
 
+    // Préparation de la requête d'insertion
     $stmt = $db->prepare("INSERT INTO cvs (name, first_name, email, bio, skills, experience, education) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->execute([$name, $first_name, $email, $bio, $skills, $experience, $education]);
 
@@ -47,9 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <?php include 'header.php'; ?>
 <main>
-    <div class="cv-container">
+    <div class="cv-container"><!-- Conteneur pour le formulaire du CV -->
         <h1><?php echo $cv ? 'Modifier mon CV' : 'Créer mon CV'; ?></h1>
 
+        <!-- Formulaire pour créer ou modifier un CV -->
         <form action="cv.php<?php echo $cv ? '?id=' . $cv['id'] : ''; ?>" method="post">
             <div class="form-group">
                 <label for="name">Nom :</label>

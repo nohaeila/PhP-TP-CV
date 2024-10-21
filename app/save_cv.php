@@ -6,7 +6,7 @@ if (!isset($_SESSION['is_admin'])) {
     exit();
 }
 
-// Connexion à la base de données (ajuste les paramètres)
+// Connexion à la base de données
 $conn = new mysqli("localhost", "username", "password", "database");
 
 // Vérifie la connexion
@@ -26,8 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "INSERT INTO cvs (name, first_name, email, bio, skills, experience, education) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
+    // Lie les paramètres
     $stmt->bind_param("sssssss", $name, $first_name, $email, $bio, $skills, $experience, $education);
 
+    // Exécute la requête et gère les résultats
     if ($stmt->execute()) {
         echo "CV enregistré avec succès.";
     } else {

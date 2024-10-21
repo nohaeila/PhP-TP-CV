@@ -8,14 +8,23 @@
     font-family: 'Jost', sans-serif;
 }
 
+/* Appliquer l'image de fond uniquement à la page index */
+.index-page {
+    background-image: url('cv_index.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Styles du corps */
 body {
-    background: linear-gradient(135deg, #C7C5F4, #776BCC);
-    color: #333;
+    background: linear-gradient(135deg, #035da2 0%, #34bbf0 100%);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
+/* Styles de l'en-tête */
 header {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 10px 20px;
@@ -27,6 +36,7 @@ header {
     text-align: center;
 }
 
+/* Styles de la barre de navigation */
 .navbar {
     display: flex;
     justify-content: center;
@@ -34,7 +44,7 @@ header {
 
 .nav-links {
     list-style-type: none;
-    display: flex;
+    display: flex;/* Aligne les éléments de la liste horizontalement */
 }
 
 .nav-links li {
@@ -49,21 +59,26 @@ header {
 }
 
 .nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(6, 6, 252, 0.2);
 }
 
+
+/* Styles principaux */
 main {
-    margin-top: 120px; /* Ajusté pour faire de la place au header */
+    margin-top: 120px; 
     display: flex;
     justify-content: center;
     align-items: flex-start;
     padding: 20px;
+    animation: fadeIn 0.5s ease-in;
+
 }
 
+/* Conteneur pour le CV */
 .cv-container {
     background-color: white;
     border-radius: 10px;
-    margin: 40px auto; /* Espace en haut et en bas */
+    margin: 40px auto;
     padding: 20px;
     max-width: 900px; /* Largeur maximale pour le CV */
     width: 95%; /* Prend 95% de la largeur de l'écran */
@@ -71,12 +86,14 @@ main {
     text-align: left;
 }
 
+/* Styles pour les titres */
 h1 {
     margin-bottom: 20px;
     font-size: 2em;
     text-align: center;
 }
 
+/* Styles pour les formulaires */
 .form-group {
     margin-bottom: 20px;
 }
@@ -85,6 +102,15 @@ label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
+}
+
+.form-control {
+    width: 50%; /* Réduit la largeur des champs de texte */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+    margin: 0 auto; /* Centre les champs */
 }
 
 input[type="text"],
@@ -105,7 +131,7 @@ textarea:focus {
 }
 
 button {
-    background-color: #4C489D;
+    background-color: #09028f;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -118,7 +144,7 @@ button {
 }
 
 button:hover {
-    background-color: #6A61B1;
+    background-color: #09028f;
 }
 
 textarea {
@@ -147,6 +173,28 @@ footer {
     margin-top: auto;
     padding: 10px 0;
     color: white;
+}
+
+/* Styles pour le bouton "Créer un CV" */
+.btn-cv {
+    display: inline-block;
+    background-color: #09028f; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    padding: 15px 30px; /* Espacement intérieur */
+    border-radius: 50px; /* Arrondir les bords */
+    text-decoration: none; /* Enlever la sous-ligne */
+    font-size: 1.5em; /* Taille de la police */
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s; /* Animation au survol */
+    position: absolute;
+    top: 10cm; /* Placer le bouton à 7 cm du haut */
+    left: 2cm; /* Placer le bouton à 3 cm de la gauche */
+}
+
+/* Effet au survol */
+.btn-cv:hover {
+    background-color: #4d3cd0; /* Couleur au survol */
+    transform: scale(1.05); /* Légère augmentation de taille au survol */
 }
 
 /* Styles pour les projets */

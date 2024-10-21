@@ -30,13 +30,26 @@ $cvs = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="projects-container">
         <h1>Mes Projets</h1>
 
+        <?php if (isset($_SESSION['message'])): ?>
+            <div class="message <?php echo $_SESSION['message_type']; ?>">
+                <?php
+                echo $_SESSION['message'];
+                unset($_SESSION['message']);
+                ?>
+            </div>
+        <?php endif; ?>
+
+        <!-- Vérifie s'il y a des CV à afficher -->
         <?php if (count($cvs) > 0): ?>
             <ul>
                 <?php foreach ($cvs as $cv): ?>
                     <li>
+                        <!-- Lien vers la page du CV -->
                         <a href="cv.php?id=<?php echo $cv['id']; ?>">
                             <?php echo htmlspecialchars($cv['first_name'] . ' ' . $cv['name']); ?>
                         </a>
+                        <!-- Lien pour supprimer le CV avec confirmation -->
+                        <a href="delete_cv.php?id=<?php echo $cv['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce CV ?');"> Supprimer</a>
                     </li>
                 <?php endforeach; ?>
             </ul>

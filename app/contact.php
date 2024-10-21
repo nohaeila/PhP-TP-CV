@@ -3,16 +3,20 @@
 $name = $email = $message = "";
 $messageSent = false;
 
+// Vérifie si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Récupération et nettoyage des données du formulaire
     $name = htmlspecialchars($_POST['name']);
     $email = htmlspecialchars($_POST['email']);
     $message = htmlspecialchars($_POST['message']);
 
+    // Configuration des paramètres de l'email
     $to = "admin@example.com"; 
     $subject = "Nouveau message de contact";
     $body = "Nom: $name\nEmail: $email\n\n$message";
     $headers = "From: $email\r\n";
 
+    // Envoi de l'email et vérification du succès
     if (mail($to, $subject, $body, $headers)) {
         $messageSent = true;
     } else {
@@ -35,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h1>Contactez-moi</h1>
             <?php if ($messageSent): ?>
             <?php endif; ?>
+             <!-- Formulaire de contact -->
             <form action="contact.php" method="post">
                 <label for="name">Nom :</label>
                 <input type="text" id="name" name="name" required>
@@ -52,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </main>
 
     <footer>
-        <p>&copy; 2024 Mon Portfolio.</p>
+        <p>&copy; 2024 Mon CV.</p>
     </footer>
 </body>
 </html>

@@ -1,17 +1,20 @@
 <?php
 session_start();
 
+// Définition des identifiants administratifs
 $adminUsername = "admin";
 $adminPassword = "password123";
 
-// Check if the form is submitted
+// Récupération des valeurs soumises par le formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    // Vérification des identifiants
     if ($username === $adminUsername && $password === $adminPassword) {
         $_SESSION['is_admin'] = true;
         
+        // Stocke des informations supplémentaires sur l'utilisateur dans la session
         $_SESSION['first_name'] = 'Admin'; 
         $_SESSION['last_name'] = 'User'; 
         $_SESSION['email'] = 'admin@example.com'; 
@@ -48,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?php if (isset($error)): ?>
             <p><?php echo $error; ?></p>
         <?php endif; ?>
-        <form method="POST" action="">
+        <form method="POST" action=""><!-- Formulaire de connexion -->
             <label for="username">Nom d'utilisateur:</label>
             <input type="text" id="username" name="username" required>
             
