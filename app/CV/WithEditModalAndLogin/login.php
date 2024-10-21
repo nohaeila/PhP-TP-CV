@@ -1,8 +1,6 @@
 <?php
-// Start the session
 session_start();
 
-// Hardcoded credentials for the admin user
 $adminUsername = "admin";
 $adminPassword = "password123";
 
@@ -11,19 +9,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Validate credentials
     if ($username === $adminUsername && $password === $adminPassword) {
-        // Set session for admin user
         $_SESSION['is_admin'] = true;
         
-        // Set user information in session (ajoute des valeurs réelles ici)
-        $_SESSION['first_name'] = 'Admin'; // Remplace par le prénom réel
-        $_SESSION['last_name'] = 'User'; // Remplace par le nom réel
-        $_SESSION['email'] = 'admin@example.com'; // Remplace par l'email réel
+        $_SESSION['first_name'] = 'Admin'; 
+        $_SESSION['last_name'] = 'User'; 
+        $_SESSION['email'] = 'admin@example.com'; 
         
         session_regenerate_id(); // Sécurise la session
-        // Redirect to the projects page
-        header("Location: ../../projects.php");
+        
+        // Vérification du paramètre de redirection
+        if (isset($_GET['redirect']) && !empty($_GET['redirect'])) {
+             // Redirection vers la page spécifiée
+            $redirect_url = $_GET['redirect']; 
+            header("Location: " . $redirect_url);
+        } else {
+            // Redirection par défaut vers index.php
+            header("Location: ../../index.php");
+        }
         exit;
     } else { 
         $error = "Nom d'utilisateur ou mot de passe invalide !";

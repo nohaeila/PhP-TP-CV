@@ -8,7 +8,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars($_POST['email']);
     $message = htmlspecialchars($_POST['message']);
 
-    $messageSent = true; 
+    $to = "admin@example.com"; 
+    $subject = "Nouveau message de contact";
+    $body = "Nom: $name\nEmail: $email\n\n$message";
+    $headers = "From: $email\r\n";
+
+    if (mail($to, $subject, $body, $headers)) {
+        $messageSent = true;
+    } else {
+        $messageSent = false; // En cas d'échec d'envoi
+    }
 }
 ?>
 

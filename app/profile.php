@@ -1,5 +1,32 @@
 <?php 
 session_start(); 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Connexion à la base de données
+    $conn = new mysqli("localhost", "username", "password", "database");
+
+    // Vérifie la connexion
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
+
+    $sql = "UPDATE users SET first_name=?, last_name=?, email=? WHERE id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssi", $first_name, $last_name, $email, $_SESSION['user_id']); // Assurez-vous d'avoir un ID d'utilisateur dans la session
+
+    if ($stmt->execute()) {
+        echo "Profil mis à jour avec succès.";
+    } else {
+        echo "Erreur: " . $stmt->error;
+    }
+
+    $stmt->close();
+    $conn->close();
+}
+
 ?>
 
 <!DOCTYPE html>

@@ -1,36 +1,49 @@
-<?php include 'header.php'; ?>
+<?php
+session_start();
+
+// Vérifie si l'utilisateur est connecté
+if (!isset($_SESSION['is_admin'])) {
+    header("Location: /CV/WithEditModalAndLogin/login.php?redirect=./cv.php");
+    exit();
+}
+
+// Connexion à la base de données SQLite
+$db = new PDO('sqlite:my_database.sqlite');
+
+// Récupérer tous les CV
+$stmt = $db->query("SELECT * FROM cvs");
+$cvs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes Projets</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <main>
-        <section class="projects">
-            <div class="project-card">
-                <img src="images/image1.jpg" alt="Titre du projet 1">
-                <h2>Titre du Projet 1</h2>
-                <p>Description du projet 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-            <div class="project-card">
-                <img src="images/image2.jpg" alt="Titre du projet 2">
-                <h2>Titre du Projet 2</h2>
-                <p>Description du projet 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-            <div class="project-card">
-                <img src="images/image3.jpg" alt="Titre du projet 3">
-                <h2>Titre du Projet 3</h2>
-                <p>Description du projet 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-        </section>
-    </main>
+<?php include 'header.php'; ?>
 
-    <footer>
-        <p>&copy; 2024 Mon Portfolio.</p>
-    </footer>
+<main>
+    <div class="projects-container">
+        <h1>Mes Projets</h1>
+
+        <?php if (count($cvs) > 0): ?>
+            <ul>
+                <?php foreach ($cvs as $cv): ?>
+                    <li>
+                        <a href="cv.php?id=<?php echo $cv['id']; ?>">
+                            <?php echo htmlspecialchars($cv['first_name'] . ' ' . $cv['name']); ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else: ?>
+            <p>Aucun CV enregistré.</p>
+        <?php endif; ?>
+    </div>
+</main>
 </body>
 </html>

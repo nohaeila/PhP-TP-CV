@@ -5,13 +5,13 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Jost', sans-serif; /* Utilisation de la police importée */
+    font-family: 'Jost', sans-serif;
 }
 
 body {
-    background: linear-gradient(135deg, #C7C5F4, #776BCC); /* Dégradé de fond */
+    background: linear-gradient(135deg, #C7C5F4, #776BCC);
     color: #333;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -22,8 +22,9 @@ header {
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
     z-index: 1000;
+    color: white;
+    text-align: center;
 }
 
 .navbar {
@@ -48,15 +49,107 @@ header {
 }
 
 .nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Effet au survol */
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 main {
-    margin-top: 60px; /* Espace sous le header */
+    margin-top: 120px; /* Ajusté pour faire de la place au header */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     padding: 20px;
+}
+
+.cv-container {
+    background-color: white;
+    border-radius: 10px;
+    margin: 40px auto; /* Espace en haut et en bas */
+    padding: 20px;
+    max-width: 900px; /* Largeur maximale pour le CV */
+    width: 95%; /* Prend 95% de la largeur de l'écran */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
     text-align: center;
 }
 
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #BA68C8;
+    outline: none;
+}
+
+button {
+    background-color: #4C489D;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #6A61B1;
+}
+
+textarea {
+    resize: none; /* Empêche le redimensionnement */
+}
+
+.message {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+.error {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 10px 0;
+    color: white;
+}
+
+/* Styles pour les projets */
 .projects {
     display: flex;
     flex-wrap: wrap;
@@ -73,110 +166,22 @@ main {
     padding: 15px;
     width: 300px;
     text-align: center;
+    transition: transform 0.2s;
+}
+
+.project-card:hover {
+    transform: scale(1.05); /* Agrandissement au survol */
 }
 
 .project-card img {
-    max-width: 100%;
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0; /* Arrondir le haut de l'image */
+    height: 200px; /* Hauteur fixe pour les images */
+    object-fit: cover; /* Couvrir l'espace sans déformation */
 }
 
-.contact {
-    padding: 20px;
-}
-
-.contact form {
-    max-width: 600px;
-    margin: auto;
-}
-
-.contact label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-.contact input,
-.contact textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.contact button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4C489D;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s; /* Transition pour un effet fluide */
-}
-
-.contact button:hover {
-    background-color: #6A61B1; /* Changement de couleur au survol */
-}
-
-.profile-icon {
-    display: inline-block; /* Pour s'assurer qu'il s'affiche bien dans la ligne */
-    margin-left: 8px; /* Espace entre le lien de déconnexion et l'icône */
-    vertical-align: middle; /* Alignement vertical */
-    color: currentColor; /* Pour que l'icône prenne la couleur du texte */
-    text-decoration: none; /* Supprime le soulignement */
-}
-
-.profile-icon svg {
-    width: 20px; /* Ajuste la taille selon tes préférences */
-    height: 20px;
-}
-
-footer {
-    text-align: center;
-    margin-top: auto; /* Ajoute l'espace sous le contenu principal */
-    padding: 10px 0;
-}
-
-.container {
-    background-color: #ffffff;
-    border-radius: 10px;
-    margin: 60px auto; /* Ajout de marges pour espacer du header fixe */
-    padding: 20px;
-    max-width: 800px; /* Limite la largeur de la container */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Ombre pour le conteneur */
-}
-
-.form-control {
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.form-control:focus {
-    box-shadow: none;
-    border-color: #BA68C8; /* Couleur du bord au focus */
-}
-
-.profile-button {
-    background: rgb(99, 39, 120);
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.profile-button:hover {
-    background: #682773; /* Couleur au survol */
-}
-
-.profile-button:focus,
-.profile-button:active {
-    background: #682773;
-    box-shadow: none;
-}
-
-.labels {
-    font-size: 14px; /* Augmenter la taille pour une meilleure lisibilité */
-    color: #555;
+/* Adaptation pour petits écrans */
+@media (max-width: 600px) {
+    .cv-container {
+        width: 90%;
+    }
 }
