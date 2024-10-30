@@ -7,7 +7,6 @@
 - **Liste de projets** : Affichage des projets réalisés par l'utilisateur et possibilité de supprimer des CVs.
 - **Gestion de l'authentification** : Connexion et déconnexion des utilisateurs.
 - **Profil utilisateur** : Affichage des informations personnelles après connexion.
-- **Messages de retour** : Indications de succès ou d'erreur lors des actions utilisateur.
 
 ## Technologies utilisées
 

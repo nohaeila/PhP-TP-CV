@@ -20,6 +20,7 @@
 body {
     background: linear-gradient(135deg, #035da2 0%, #34bbf0 100%);
     min-height: 100vh;
+    font-size: 1.2em;
     display: flex;
     flex-direction: column;
 }
@@ -44,7 +45,7 @@ header {
 
 .nav-links {
     list-style-type: none;
-    display: flex;/* Aligne les éléments de la liste horizontalement */
+    display: flex;
 }
 
 .nav-links li {
@@ -62,7 +63,6 @@ header {
     background-color: rgba(6, 6, 252, 0.2);
 }
 
-
 /* Styles principaux */
 main {
     margin-top: 120px; 
@@ -71,7 +71,18 @@ main {
     align-items: flex-start;
     padding: 20px;
     animation: fadeIn 0.5s ease-in;
+}
 
+/* Section de bienvenue */
+.welcome-section {
+    text-align: center; /* Centrer le texte */
+    color: white; /* Couleur du texte en blanc */
+    margin-top: 100px; /* Espace au-dessus du message */
+}
+
+.welcome-message {
+    font-size: 2.5em; /* Taille du message de bienvenue */
+    margin-bottom: 20px; /* Espacement en bas du message */
 }
 
 /* Conteneur pour le CV */
@@ -80,8 +91,8 @@ main {
     border-radius: 10px;
     margin: 40px auto;
     padding: 20px;
-    max-width: 900px; /* Largeur maximale pour le CV */
-    width: 95%; /* Prend 95% de la largeur de l'écran */
+    max-width: 900px;
+    width: 95%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: left;
 }
@@ -89,8 +100,15 @@ main {
 /* Styles pour les titres */
 h1 {
     margin-bottom: 20px;
-    font-size: 2em;
+    font-size: 3em;
     text-align: center;
+}
+
+/* Styles pour les boutons côte à côte */
+.button-container {
+    display: flex;
+    justify-content: center; /* Centrer les boutons */
+    gap: 20px; /* Espace entre les boutons */
 }
 
 /* Styles pour les formulaires */
@@ -105,12 +123,12 @@ label {
 }
 
 .form-control {
-    width: 50%; /* Réduit la largeur des champs de texte */
+    width: 50%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     transition: border-color 0.3s;
-    margin: 0 auto; /* Centre les champs */
+    margin: 0 auto;
 }
 
 input[type="text"],
@@ -130,71 +148,36 @@ textarea:focus {
     outline: none;
 }
 
-button {
-    background-color: #09028f;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+.button-35 {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, .1) 0 6px 20px;
+    box-sizing: border-box;
+    color: #121212;
     cursor: pointer;
-    transition: background-color 0.3s;
-    width: 100%;
-    font-size: 1.1em;
-    font-weight: bold;
-}
-
-button:hover {
-    background-color: #09028f;
-}
-
-textarea {
-    resize: none; /* Empêche le redimensionnement */
-}
-
-.message {
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
+    display: inline-flex;
+    flex: 1 1 auto;
+    font-family: 'Jost', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 1;
+    margin: 0;
+    outline: none;
+    padding: 1rem 1.2rem;
     text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s, -webkit-box-shadow .2s;
+    white-space: nowrap;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
-.success {
-    background-color: #dff0d8;
-    color: #3c763d;
-}
-
-.error {
-    background-color: #f2dede;
-    color: #a94442;
-}
-
-footer {
-    text-align: center;
-    margin-top: auto;
-    padding: 10px 0;
-    color: white;
-}
-
-/* Styles pour le bouton "Créer un CV" */
-.btn-cv {
-    display: inline-block;
-    background-color: #09028f; /* Couleur de fond */
-    color: white; /* Couleur du texte */
-    padding: 15px 30px; /* Espacement intérieur */
-    border-radius: 50px; /* Arrondir les bords */
-    text-decoration: none; /* Enlever la sous-ligne */
-    font-size: 1.5em; /* Taille de la police */
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s; /* Animation au survol */
-    position: absolute;
-    top: 10cm; /* Placer le bouton à 7 cm du haut */
-    left: 2cm; /* Placer le bouton à 3 cm de la gauche */
-}
-
-/* Effet au survol */
-.btn-cv:hover {
-    background-color: #4d3cd0; /* Couleur au survol */
-    transform: scale(1.05); /* Légère augmentation de taille au survol */
+.button-35:hover {
+    box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 
 /* Styles pour les projets */
@@ -218,13 +201,13 @@ footer {
 }
 
 .project-card:hover {
-    transform: scale(1.05); /* Agrandissement au survol */
+    transform: scale(1.05);
 }
 
 .project-card img {
-    border-radius: 15px 15px 0 0; /* Arrondir le haut de l'image */
-    height: 200px; /* Hauteur fixe pour les images */
-    object-fit: cover; /* Couvrir l'espace sans déformation */
+    border-radius: 15px 15px 0 0;
+    height: 200px;
+    object-fit: cover;
 }
 
 /* Adaptation pour petits écrans */
@@ -232,4 +215,22 @@ footer {
     .cv-container {
         width: 90%;
     }
+
+    .welcome-message {
+        font-size: 2em; /* Ajustement de la taille pour les petits écrans */
+    }
+
+    .button-35 {
+        width: 150px; /* Ajustement de la largeur pour les petits écrans */
+    }
+}
+
+.bi-trash3 {
+    color: #ff0000; /* Couleur de l'icône (rouge) */
+    cursor: pointer; /* Pointeur pour indiquer que c'est cliquable */
+    transition: transform 0.2s; /* Transition pour l'effet de survol */
+}
+
+.bi-trash3:hover {
+    transform: scale(1.1); /* Agrandir légèrement l'icône au survol */
 }

@@ -74,3 +74,23 @@ p {
     text-align: center; /* Centre le message d'erreur */
     margin-top: 10px; /* Espace au-dessus du message d'erreur */
 }
+
+.btn-action {
+    background-color: #09028f; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    padding: 10px 20px; /* Espacement interne */
+    border: none; /* Sans bordure */
+    border-radius: 5px; /* Coins arrondis */
+    text-align: center;
+    text-decoration: none; /* Supprime le soulignement */
+    font-weight: 600;
+    font-size: 16px;
+    display: block; /* Chaque bouton occupe une ligne entière */
+    margin: 10px 0; /* Espacement entre les boutons */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transition pour effet de survol */
+}
+
+.btn-action:hover {
+    background-color: #5d54a4; /* Couleur de fond au survol */
+}

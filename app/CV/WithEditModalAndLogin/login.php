@@ -23,17 +23,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Vérification du paramètre de redirection
         if (isset($_GET['redirect']) && !empty($_GET['redirect'])) {
-             // Redirection vers la page spécifiée
-            $redirect_url = $_GET['redirect']; 
-            header("Location: " . $redirect_url);
+            // Redirection vers la page spécifiée
+            $redirect_url = $_GET['redirect'];
+        
+            // Assure-toi que le chemin de redirection est correct
+            if (strpos($redirect_url, '/') === 0) {
+                header("Location: " . $redirect_url);
+            } else {
+                // Si le chemin n'est pas absolu, redirige vers index.php par défaut
+                header("Location: /index.php");
+            }
         } else {
             // Redirection par défaut vers index.php
-            header("Location: ../../index.php");
+            header("Location: /index.php");
         }
-        exit;
-    } else { 
-        $error = "Nom d'utilisateur ou mot de passe invalide !";
-    }
+    } 
 }
 ?>
 

@@ -3,7 +3,7 @@ session_start();
 
 // Vérifie si l'utilisateur est connecté
 if (!isset($_SESSION['is_admin'])) {
-    header("Location: /CV/WithEditModalAndLogin/login.php?redirect=./cv.php");
+    header("Location: /CV/WithEditModalAndLogin/login.php?redirect=/edit_cv.php");
     exit();
 }
 
@@ -32,5 +32,5 @@ if (isset($_GET['id'])) {
 }
 
 // Redirige vers la page des projets
-header("Location: projects.php");
+header("Location: cvs.php");
 exit();
