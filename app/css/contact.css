@@ -2,20 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap');
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Jost', sans-serif;
+    box-sizing: border-box;
 }
 
-/* Styles du corps */
 body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
     background: linear-gradient(135deg, #035da2 0%, #34bbf0 100%);
-    min-height: 100vh;
-    font-size: 1.2em;
-    display: flex;
-    flex-direction: column;
+    color: #333;
 }
+
 
 /* Styles de l'en-tête */
 header {
@@ -55,59 +53,117 @@ header {
     background-color: rgba(6, 6, 252, 0.2);
 }
 
-/* Styles principaux */
-main {
-    margin-top: 120px; 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    animation: fadeIn 0.5s ease-in;
+
+/* Section de contact */
+.contact {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
-/* Styles pour les titres */
-h1 {
-    margin-bottom: 20px;
-    font-size: 3em;
+.contact h1 {
     text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    position: relative;
 }
 
-/* Styles pour les formulaires */
-.form-group {
-    margin-bottom: 20px;
+.contact h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #3498db;
+}
+
+/* Formulaire */
+form {
+    display: flex;
+    flex-direction: column;
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
+    color: #34495e;
     font-weight: bold;
 }
 
-.form-control {
-    width: 50%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    transition: border-color 0.3s;
-    margin: 0 auto;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
+input, textarea {
     width: 100%;
-    padding: 10px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #bdc3c7;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-    border-color: #BA68C8;
+input:focus, textarea:focus {
     outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+/* Bouton */
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Message envoyé (pour la future implémentation) */
+.message-sent {
+    background-color: #2ecc71;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .contact {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .contact h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Animation subtile */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}

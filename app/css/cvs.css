@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f8;
+    color: #333;
+}
+
+/* Container principal */
+.projects-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre */
+.projects-container h1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    position: relative;
+}
+
+.projects-container h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: #3498db;
+}
+
+/* Styles des liens */
+a {
+    color: inherit; /* Garde la couleur de texte par défaut */
+    text-decoration: none; /* Retire le soulignement */
+}
+
+a:hover {
+    color: #3498db; /* Optionnel : change la couleur au survol si tu le souhaites */
+}
+
+/* Icône d'ajout */
+.add-icon {
+    color: #3498db;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.add-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Messages */
+.message {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.message.success {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.message.error {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.project-card {
+    background-color: #f9f9fc;
+    border-radius: 10px;
+    padding: 1.5rem;
+    padding-right: 3rem; /* Ajoute de l'espace à droite */
+    margin-bottom: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+.project-card p {
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+    max-width: calc(100% - 3rem); /* Limite la largeur pour éviter le chevauchement */
+}
+
+.title-container {
+    background-color: #eaf1f8; /* Couleur d'arrière-plan pour le rectangle */
+    padding: 0.5rem 1rem; /* Ajuste le padding pour le conteneur */
+    border-radius: 5px; /* Coins arrondis */
+    display: inline-block; /* Pour limiter la largeur au contenu */
+    margin-bottom: 0.5rem; /* Espace sous le titre */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Légère ombre */
+}
+
+.title-container a {
+    color: #2c3e50; /* Couleur du texte */
+    font-size: 1.5rem; /* Ajuste la taille du texte */
+    text-decoration: none; /* Supprime le soulignement */
+}
+
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h2 {
+    color: #2c3e50;
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+}
+
+.project-card p {
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+}
+
+/* Icône de suppression */
+.project-card a[href^="/delete_project.php"] {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: #95a5a6;
+    transition: color 0.3s ease;
+}
+
+.project-card a[href^="/delete_project.php"]:hover {
+    color: #e74c3c;
+}
+
+.project-card a[href^="/delete_project.php"] svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Message "Aucun projet" */
+.projects-container p {
+    text-align: center;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .projects-container {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .projects-container h1 {
+        font-size: 2rem;
+    }
+
+    .project-card {
+        padding: 1rem;
+    }
+
+    .project-card h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Animations de chargement */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0);
+    }
+}
+
+/* Effet de survol subtil */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.project-card:hover::before {
+    opacity: 1;
+}

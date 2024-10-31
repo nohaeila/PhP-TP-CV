@@ -29,7 +29,7 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes Projets</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/project.css">
 </head>
 <body class="project-page"> 
 
@@ -58,7 +58,7 @@ $projects = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php if (count($projects) > 0): ?>
             <?php foreach ($projects as $project) : ?>
     <div class="project-card">
-        <h2><?php echo htmlspecialchars($project['title']); ?></h2>
+        <h2><a href="/edit_project.php?id=<?php echo $project['id']; ?>"><?php echo htmlspecialchars($project['title']); ?></a></h2>
         <p><?php echo htmlspecialchars($project['description']); ?></p>
         <a href="/delete_project.php?id=<?php echo $project['id']; ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce projet ?');">
             <!-- Icône de la corbeille -->

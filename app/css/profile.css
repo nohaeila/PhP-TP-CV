@@ -2,19 +2,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap');
 
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Jost', sans-serif;
+    box-sizing: border-box;
 }
 
-/* Styles du corps */
 body {
+    font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #035da2 0%, #34bbf0 100%);
-    min-height: 100vh;
-    font-size: 1.2em;
+    line-height: 1.6;
+    color: #333;
+}
+
+.profile-page {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Styles de l'en-tête */
@@ -28,6 +31,7 @@ header {
     color: white;
     text-align: center;
 }
+
 
 /* Styles de la barre de navigation */
 .navbar {
@@ -55,51 +59,109 @@ header {
     background-color: rgba(6, 6, 252, 0.2);
 }
 
-/* Styles principaux */
-main {
-    margin-top: 120px; 
+/* Container principal */
+.container {
+    max-width: 1200px;
+    width: calc(100% - 114px);
+    margin: 2rem auto;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 2rem;
+}
+/* Colonne de gauche - Photo de profil */
+.col-md-3 {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    animation: fadeIn 0.5s ease-in;
+    align-items: center;
+    padding: 1rem;
+}
+.rounded-circle {
+    border: 4px solid #e0e0e0;
+    object-fit: cover;
 }
 
-/* Styles pour les titres */
-h1 {
-    margin-bottom: 20px;
-    font-size: 3em;
-    text-align: center;
+/* Formulaire de profil */
+.col-md-4 {
+    padding: 1rem;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
+.labels {
     font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
 }
 
 .form-control {
-    width: 50%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    transition: border-color 0.3s;
-    margin: 0 auto;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
     width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    transition: border-color 0.3s;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-    border-color: #BA68C8;
+.form-control:focus {
     outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Bouton de sauvegarde */
+.profile-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-button:hover {
+    background-color: #0056b3;
+}
+
+/* Style pour la description dans le projet */
+.project-description {
+    margin-right: 30px; /* Ajoute un espace à droite de la description */
+    font-size: 16px;
+}
+
+/* Pour l'icône poubelle */
+.project-trash-icon {
+    margin-left: 10px; /* Ajoute un espace entre la description et l'icône */
+    cursor: pointer;
+    color: #ff4d4d; /* Exemple de couleur rouge pour l'icône */
+    transition: color 0.3s;
+}
+
+.project-trash-icon:hover {
+    color: #e60000; /* Change la couleur en survol */
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .col-md-3, .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .rounded-circle {
+        width: 100px;
+        height: 100px;
+    }
 }
