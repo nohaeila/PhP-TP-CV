@@ -1,0 +1,105 @@
+/* Importation de la police Jost */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Jost', sans-serif;
+}
+
+/* Styles du corps */
+body {
+    background: linear-gradient(135deg, #035da2 0%, #34bbf0 100%);
+    min-height: 100vh;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Styles de l'en-tête */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    color: white;
+    text-align: center;
+}
+
+/* Styles de la barre de navigation */
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: rgba(6, 6, 252, 0.2);
+}
+
+/* Styles principaux */
+main {
+    margin-top: 120px; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Styles pour les titres */
+h1 {
+    margin-bottom: 20px;
+    font-size: 3em;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+    margin: 0 auto;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #BA68C8;
+    outline: none;
+}

@@ -1,4 +1,4 @@
-<?php include 'header.php';
+<?php session_start();
 // Initialisation des variables
 $name = $email = $message = "";
 $messageSent = false;
@@ -31,16 +31,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/contact.css">
 </head>
 <body>
+<?php include '/app/header.php'; ?>
     <main>
         <section class="contact">
             <h1>Contactez-moi</h1>
             <?php if ($messageSent): ?>
             <?php endif; ?>
              <!-- Formulaire de contact -->
-            <form action="contact.php" method="post">
+            <form action="/includes/contact.php" method="post">
                 <label for="name">Nom :</label>
                 <input type="text" id="name" name="name" required>
                 
