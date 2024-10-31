@@ -4,7 +4,7 @@
 
 - **Page d'accueil** : Présentation générale du site avec une image de fond.
 - **Création de CV** : Interface permettant de créer et d'éditer des CVs.
-- **Liste de projets** : Affichage des projets réalisés par l'utilisateur et possibilité de supprimer des CVs.
+- **Création de Projet** : Interface permettant de créer et d'éditer des projets.
 - **Gestion de l'authentification** : Connexion et déconnexion des utilisateurs.
 - **Profil utilisateur** : Affichage des informations personnelles après connexion.
 
