@@ -1,6 +1,7 @@
-/* Importation de la police Jost */
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap');
+/* [Les imports et styles de base restent identiques jusqu'aux styles de .project-card] */
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
 
+/* Reset et styles de base */
 * {
     margin: 0;
     padding: 0;
@@ -8,160 +9,262 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Jost', sans-serif;
     background: linear-gradient(135deg, #035da2 0%, #34bbf0 100%);
     line-height: 1.6;
-    color: #333;
-}
-
-.profile-page {
-    display: flex;
-    flex-direction: column;
+    color: #2d3748;
     min-height: 100vh;
 }
 
-/* Styles de l'en-tête */
+.project-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+/* Header et Navigation */
 header {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 10px 20px;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 1rem;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    color: white;
-    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-
-/* Styles de la barre de navigation */
 .navbar {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .nav-links {
-    list-style-type: none;
+    list-style: none;
     display: flex;
-}
-
-.nav-links li {
-    margin: 0 15px;
+    gap: 1.5rem;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
-    padding: 8px 15px;
-    transition: background-color 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
-    background-color: rgba(6, 6, 252, 0.2);
+    background: rgba(52, 187, 240, 0.2);
+    transform: translateY(-2px);
 }
 
 /* Container principal */
-.container {
+.projects-container {
     max-width: 1200px;
-    width: calc(100% - 114px);
     margin: 2rem auto;
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
     padding: 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
 }
-/* Colonne de gauche - Photo de profil */
-.col-md-3 {
+
+/* Titre et bouton d'ajout */
+.projects-container h1 {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-}
-.rounded-circle {
-    border: 4px solid #e0e0e0;
-    object-fit: cover;
-}
-
-/* Formulaire de profil */
-.col-md-4 {
-    padding: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid #34bbf0;
+    color: #1a202c;
+    font-size: 2.25rem;
+    font-weight: 600;
 }
 
-.labels {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    display: block;
-}
-
-.form-control {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    transition: border-color 0.3s ease;
-}
-
-.form-control:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-/* Bouton de sauvegarde */
-.profile-button {
-    background-color: #007bff;
+.add-icon {
+    background: #34bbf0;
     color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 0.75rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
 }
 
-.profile-button:hover {
-    background-color: #0056b3;
+.add-icon:hover {
+    background: #035da2;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(52, 187, 240, 0.3);
 }
 
-/* Style pour la description dans le projet */
-.project-description {
-    margin-right: 30px; /* Ajoute un espace à droite de la description */
-    font-size: 16px;
+.add-icon svg {
+    width: 24px;
+    height: 24px;
 }
 
-/* Pour l'icône poubelle */
-.project-trash-icon {
-    margin-left: 10px; /* Ajoute un espace entre la description et l'icône */
-    cursor: pointer;
-    color: #ff4d4d; /* Exemple de couleur rouge pour l'icône */
-    transition: color 0.3s;
+/* Cartes de projet - Layout corrigé */
+.project-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    animation: slideUp 0.5s ease-out forwards;
+    display: flex;
+    flex-direction: column;
 }
 
-.project-trash-icon:hover {
-    color: #e60000; /* Change la couleur en survol */
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    border-color: #34bbf0;
 }
 
+.project-card h2 {
+    margin-bottom: 1rem;
+    padding-right: 5rem; 
+    color: #2d3748;
+    font-weight: 600;
+}
 
-/* Footer */
-footer {
+.project-card h2 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.project-card h2 a:hover {
+    color: #035da2;
+}
+
+.project-card p {
+    color: #4a5568;
+    line-height: 1.8;
+    padding-right: 3rem; /* Espace pour l'icône */
+}
+
+/* Bouton de suppression - Position ajustée */
+.project-card a[href^="/delete_project.php"] {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: #a0aec0;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    width: 32px; /* Largeur fixe */
+    height: 32px; /* Hauteur fixe */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    z-index: 2; /* Assure que l'icône reste au-dessus */
+}
+
+.project-card a[href^="/delete_project.php"]:hover {
+    background: #FED7D7;
+    color: #E53E3E;
+}
+
+.project-card a[href^="/delete_project.php"] svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Messages */
+.message {
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    font-weight: 500;
+    animation: slideDown 0.4s ease-out;
+}
+
+.message.success {
+    background: #C6F6D5;
+    color: #2F855A;
+    border: 1px solid #9AE6B4;
+}
+
+.message.error {
+    background: #FED7D7;
+    color: #C53030;
+    border: 1px solid #FEB2B2;
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Message "Aucun projet" */
+.projects-container > p {
     text-align: center;
-    padding: 1rem;
-    margin-top: auto;
+    color: #718096;
+    padding: 3rem;
+    background: #F7FAFC;
+    border-radius: 10px;
+    border: 2px dashed #E2E8F0;
+    font-style: italic;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .container {
+    .projects-container {
         margin: 1rem;
-        padding: 1rem;
+        padding: 1.5rem;
     }
 
-    .col-md-3, .col-md-4 {
-        flex: 0 0 100%;
-        max-width: 100%;
+    .projects-container h1 {
+        font-size: 1.75rem;
+        flex-direction: column;
+        gap: 1rem;
     }
 
-    .rounded-circle {
-        width: 100px;
-        height: 100px;
+    .project-card {
+        padding: 1.25rem;
+    }
+
+    .project-card h2,
+    .project-card p {
+        padding-right: 2.5rem; /* Espace réduit sur mobile */
+    }
+
+    .project-card a[href^="/delete_project.php"] {
+        top: 1.25rem;
+        right: 1.25rem;
+        width: 28px; /* Taille réduite sur mobile */
+        height: 28px;
     }
 }
+
+/* Animation des cartes */
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+.project-card:nth-child(5) { animation-delay: 0.5s; }
