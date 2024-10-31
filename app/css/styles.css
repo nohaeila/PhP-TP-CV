@@ -234,3 +234,42 @@ textarea:focus {
 .bi-trash3:hover {
     transform: scale(1.1); /* Agrandir légèrement l'icône au survol */
 }
+
+.add-icon {
+    display: inline-block;
+    margin-bottom: 15px; /* Ajoute un peu d'espace en bas */
+    color: #007bff; /* Couleur de l'icône */
+    text-decoration: none; /* Supprime le soulignement du lien */
+    transition: color 0.2s;
+}
+
+.add-icon:hover {
+    color: #f9fafc; /* Couleur au survol */
+}
+
+.project-card, .cv-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.add-cv, .add-project {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    margin-top: 40px; /* Ajoute de l'espace au-dessus */
+    height: 100vh; /* Occupe toute la hauteur de la page */
+}
+
+.add-icon {
+    display: inline-block;
+    color: #070808; /* Couleur de l'icône */
+    font-size: 1.5rem; /* Taille de l'icône */
+}
+
+.add-icon svg {
+    width: 32px; /* Largeur de l'icône */
+    height: 32px; /* Hauteur de l'icône */
+}
+
